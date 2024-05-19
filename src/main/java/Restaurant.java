@@ -61,4 +61,9 @@ public class Restaurant {
         return name;
     }
 
+    public int getTotalOrderValue(List<String> items) {
+        //TODO Implement the feature for calculating the total order value
+        throw new UnsupportedOperationException("Unimplemented method 'getTotalOrderValue'");
+    }
+
 }

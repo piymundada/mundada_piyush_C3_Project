@@ -6,6 +6,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -58,4 +59,23 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>Total Order value<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void total_order_value_should_be_correct_when_order_contains_multiple_items() {
+        assertEquals(388, restaurant.getTotalOrderValue(Arrays.asList("Sweet corn soup", "Vegetable lasagne")));
+    }
+
+    @Test
+    public void total_order_value_should_be_correct_when_order_contains_single_item() {
+        assertEquals(119, restaurant.getTotalOrderValue(Arrays.asList("Sweet corn soup")));
+    }
+
+    @Test
+    public void total_order_value_should_be_zero_when_order_is_empty() {
+        assertEquals(0, restaurant.getTotalOrderValue(Arrays.asList()));
+    }
+
+
+    //<<<<<<<<<<<<<<<<<<<<Total Order value>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
