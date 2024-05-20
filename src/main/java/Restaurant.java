@@ -62,8 +62,11 @@ public class Restaurant {
     }
 
     public int getTotalOrderValue(List<String> items) {
-        //TODO Implement the feature for calculating the total order value
-        throw new UnsupportedOperationException("Unimplemented method 'getTotalOrderValue'");
+        int totalValue = 0;
+        for (String item : items) {
+            totalValue += findItemByName(item).getPrice();
+        }
+        return totalValue;
     }
 
 }
